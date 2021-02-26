@@ -1,0 +1,122 @@
+.container {
+    position: relative;
+    width: 70vw;
+    height: 90vh;
+    margin-top: 20vh;
+    background-color: #141419;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 1px #707070;
+}
+
+#image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #fff;
+    font-size: 20px;
+}
+
+.form-group input {
+    margin-top: 20px;
+    padding: 3%;
+    width: 100%;
+}
+
+.form-group input ::placeholder {
+    color: #bebbbb;
+}
+
+.input-image {
+    width: 200px;
+    height: 200px;
+    background: #fff;
+    margin-top: -100px;
+    position: relative;
+    border-radius: 50%;
+}
+
+.input-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    width: 70%;
+}
+
+
+/* .container form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    margin: 5% 0;
+} */
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #191920 no-repeat url("../img/Caminho4.svg") bottom;
+}
+
+.container form button {
+    grid-column: 1/3;
+    margin: 5% 30%;
+    background-color: #03da6c;
+    font-size: 2em;
+    font-weight: bold;
+    color: #fff;
+    padding: 2% 0;
+    border: solid 1px #707070;
+    border-radius: 30px;
+    transition: 0.2s;
+}
+
+.container form button:hover {
+    background-color: #02984b;
+}
+
+footer {
+    display: flex;
+    font-size: 30px;
+    margin: 0 5%;
+    color: #fff;
+    align-self: flex-end;
+    justify-self: end;
+}
+
+h1 {
+    font-size: 6vw;
+    color: #fff;
+    margin-top: 2%;
+}
+
+@media (max-width: 768px) {
+    .input-image {
+        width: 100px;
+        height: 100px;
+        margin-top: -50px;
+        background: #fff;
+        position: relative;
+        border-radius: 50%;
+    }
+}
