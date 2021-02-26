@@ -1,4 +1,6 @@
-const express = require('express');
-const app = express();
+const app = require('./app');
 
-app.use(express.json());
+console.log(process.env.PORT);
+app.listen(3333, () => {
+  console.log('roda roda roda');
+});
