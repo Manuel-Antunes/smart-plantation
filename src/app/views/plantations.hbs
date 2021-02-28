@@ -2,16 +2,24 @@
 <link rel="stylesheet" href="/public/css/plantations.css">
 <div class="container">
   <ul class="plantations-list">
+    {{#if plantations}}
     <a id="add" href="create-plantation">+</a>
-    {{plantations}}
+    {{/if}}
     {{#each plantations}}
     <li>
       <a href="plantation/{{name}}">
+        {{#if logo.url}}
         <img src="{{logo.url}}" alt="{{name}}">
+        {{else}}
+        <img class="placeholded" src="/public/img/paisagem.jpg" alt="placeholder">
+        {{/if}}
         <div class="name {{status}}">{{name}}</div>
         <span>ENTER</span>
       </a>
     </li>
     {{/each}}
   </ul>
+  {{#unless plantations}}
+  <a id="add" href="create-plantation">+</a>
+  {{/unless}}
 </div>

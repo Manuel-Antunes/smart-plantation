@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/public/css/createUsers.css" media="(min-width: 768px)">
+<link rel="stylesheet" href="/public/css/createUsersMobile.css" media="(max-width: 768px)">
+<div class="whrapper">
+  <div class="container">
+    <div class="splash">
+      <h1>Smart Plantations</h1>
+    </div>
+    <div class="bash">
+      <form id="form" action="/plantations">
+        <h1>Login</h1>
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input placeholder="insira o seu email" id="email" name="email" type="email">
+        </div>
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input placeholder="insira sua senha" id="password" name="password" type="password">
+        </div>
+        <div class="buttons">
+          <button id="about">
+            <icon class="material-icons">error</icon>
+            sobre
+          </button>
+          <button id="google-button"><i class="fab fa-google"></i>Login Com o Google</button>
+          <button id="default-auth" type="submit">Entrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="/public/js/authentication.js"></script>
