@@ -1,3 +1,10 @@
 node_modules
 .env
-tmp
+
+tmp/*
+!tmp/.gitkeep
+
+dist
+
+testFirebase.html
+
