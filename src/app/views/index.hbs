@@ -5,14 +5,33 @@
   Cadastre sua plantação
 </h1>
 <div class="container">
-  <div class="input-image">
-    <input class="image" id="image" type="file" accept="image/*" />
-    <img src="../public/img/paisagem.jpg" alt="">
-  </div>
-  <form action="./plantation" action="POST">
-    <div class="form-group">
+  <form enctype="multipart/form-data" id="form" action="./plantations" method="POST">
+    <div class="input-image">
+      <input name="file" onchange="changeInputImage(this)" class="image" id="image" type="file" accept="image/*" />
+      <img src="../public/img/paisagem.jpg" id="img-placeholder" alt="placeholder">
+    </div>
+    <div id="name" class="form-group">
       <label for="">Nome da plantação</label>
-      <input placeholder="INSIRA O NOME AQUI" type="text">
+      <input name="name" required placeholder="INSIRA O NOME AQUI" type="text">
+    </div>
+    <div id="objetive-humidity" class="form-group">
+      <label for="">Humidade Objetiva do Solo (%)</label>
+      <input required name="objetiveHumidity" min="0" type="number"
+        placeholder="INSIRA AQUI O VALOR DA HUMIDADE OBJETIVA" type="text">
+    </div>
+    <div id="flow-rate" class="form-group">
+      <label for="">Vazão CM³</label>
+      <input required min="0" name="flowRate" type="number" placeholder="INSIRA AQUI O VALOR DA HUMIDADE OBJETIVA"
+        type="text">
+    </div>
+    <div id="solo-description" class="form-group">
+      <label for="">Insira uma Descrição do seu solo</label>
+      <input required name="description" placeholder="INSIRA UMA PEQUENA DESCRIÇÃO" type="text">
+    </div>
+    <div id="solo-coefficient" class="form-group">
+      <label for="">Coeficiente de Tipo de Solo</label>
+      <input required name="soloCoefficient" min="1" max="6" type="number"
+        placeholder="INSIRA AQUI O COEFICIENTE GERADO PELA INSTRUÇÃO DO TECNICO" type="text">
     </div>
     <button type="submit">Cadastrar</button>
   </form>
@@ -20,7 +39,9 @@
     <span>Torne sua plantação mais inteligente</span>
   </footer>
   <script>
-    const a = {{ name }};
-    console.log(a)
+    const b = JSON.parse('{{{name}}}');
+    console.log(b);
   </script>
+  <script src="/public/js/plantation.js"></script>
+
 </div>

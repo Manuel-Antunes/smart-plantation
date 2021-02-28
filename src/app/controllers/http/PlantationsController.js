@@ -1,16 +1,18 @@
-const User = require('../models/User');
+const Plantation = require('../../models/Plantation');
 
-class UsersController {
+class PlantationsController {
   /**
    * @param {import('express').Request} req
    * @param {import('express').Response} res
    */
   async store(req, res) {
     try {
-      const user = await User.create(req.body);
-      return res.json(user);
+      const plantation = await Plantation.create(req.body);
+      return res.render(`plantation/${req.body.name}`, plantation);
     } catch (err) {
-      return res.status(400).json({ error: { message: 'an error' } });
+      return res
+        .status(400)
+        .render('index', { error: { message: 'an error' } });
     }
   }
 
@@ -39,4 +41,4 @@ class UsersController {
   // async update(req, res) { }
 }
 
-module.exports = new UsersController();
+module.exports = new PlantationsController();

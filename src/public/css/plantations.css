@@ -1,0 +1,115 @@
+.plantations-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    list-style: none;
+    position: relative;
+}
+
+body {
+    background: #191920 url("../img/Caminho4.svg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+@media (max-width: 768px) {
+    .plantations-list {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.plantations-list li a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #FFF;
+    text-decoration: none;
+    text-align: center;
+}
+
+.plantations-list li {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 370px;
+    background-color: #075324;
+    font-size: 10em;
+    border: solid 1px #191920;
+    border-radius: 10px;
+    transition: padding 0.2s;
+}
+
+.plantations-list li:hover {
+    padding: 10px;
+}
+
+.plantations-list li a .name {
+    margin-top: 10px;
+}
+
+.plantations-list li a .name::before {
+    content: ' ';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 10px;
+    border: 1px solid #000;
+    border-radius: 7px;
+}
+
+.plantations-list li a .on::before {
+    background-color: #94E185;
+    border-color: #78D965;
+    box-shadow: 0px 0px 4px 1px #94E185;
+}
+
+.plantations-list li a .issued::before {
+    background-color: #FFC182;
+    border-color: #FFB161;
+    box-shadow: 0px 0px 4px 1px #FFC182;
+}
+
+.plantations-list li a .off::before {
+    background-color: #C9404D;
+    border-color: #C42C3B;
+    box-shadow: 0px 0px 4px 1px #C9404D;
+}
+
+.plantations-list li img {
+    width: 100%;
+    height: 250px;
+    align-self: center;
+    background-color: #FFF;
+}
+
+#add {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: sticky;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    border: 1px solid #191920;
+    background-color: #141419;
+    font-size: 2rem;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+}
+
+.plantations-list li a span {
+    font-family: 'Roboto', sans-serif;
+}

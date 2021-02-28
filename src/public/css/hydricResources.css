@@ -1,8 +1,7 @@
 .container {
     position: relative;
     width: 70vw;
-    height: 90vh;
-    margin-top: 20vh;
+    margin-top: 10vh;
     background-color: #141419;
     display: flex;
     flex-direction: column;
@@ -69,8 +68,9 @@
     width: 100%;
 }
 
-.form-group input ::placeholder {
-    color: #BEBBBB;
+.form-group input::placeholder {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5vw;
 }
 
 .container form button {
@@ -80,7 +80,7 @@
     font-size: 20px;
     font-weight: bold;
     color: #FFF;
-    padding: 2% 0;
+    padding: 1vw 0;
     border: solid 1px #707070;
     border-radius: 30px;
     transition: .2s;
@@ -115,4 +115,21 @@ body {
         display: flex;
         flex-direction: column;
     }
+}
+
+body {
+    background-color: #03DA6C;
+}
+
+.wrapper {
+    background: #191920 url("../img/Caminho4.svg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border: none;
+    justify-content: center;
 }

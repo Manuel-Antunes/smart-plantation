@@ -1,0 +1,17 @@
+{{>nav}}
+<link rel="stylesheet" href="/public/css/plantations.css">
+<div class="container">
+  <ul class="plantations-list">
+    <a id="add" href="create-plantation">+</a>
+
+    {{#each plantations}}
+    <li>
+      <a href="plantation/{{this.name}}">
+        <img src="{{this.logo.url}}" alt="{{this.name}}">
+        <div class="name {{this.status}}">{{this.name}}</div>
+        <span>ENTER</span>
+      </a>
+    </li>
+    {{/each}}
+  </ul>
+</div>

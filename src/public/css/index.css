@@ -2,7 +2,6 @@
 .container {
     position: relative;
     width: 70vw;
-    height: 100vh;
     margin-top: 20vh;
     background-color: #141419;
     display: flex;
@@ -39,8 +38,7 @@
 }
 
 .form-group input::placeholder {
-    color: #bebbbb;
-    font-size: 1.5vw;
+    font-size: 1vw;
 }
 
 .input-image {
@@ -50,6 +48,8 @@
     margin-top: -100px;
     position: relative;
     border-radius: 50%;
+    grid-column: 1/3;
+    margin: -130px auto 0 auto;
 }
 
 .input-image img {
@@ -59,25 +59,26 @@
 }
 
 .container form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 5%;
-    width: 70%;
-}
-
-
-/* .container form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
     margin: 5% 0;
-} */
+}
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #191920 no-repeat url("../img/Caminho4.svg") bottom;
+    background: #191920 url("../img/Caminho4.svg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .container form button {
@@ -115,10 +116,29 @@ h1 {
     margin-top: 2%;
 }
 
+.input-image::after {
+    background-color: #fff;
+    content: '+';
+    right: 0;
+    bottom: 2%;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    position: absolute;
+    width: 15%;
+    height: 15%;
+    margin-right: 10px;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
 @media (max-width: 768px) {
     .input-image {
         width: 100px;
         height: 100px;
+        align-self: center;
         margin-top: -50px;
         background: #fff;
         position: relative;
@@ -126,5 +146,28 @@ h1 {
     }
     .form-group label {
         align-self: center;
+    }
+}
+
+#objetive-humidity {}
+
+#flow-rate {}
+
+#solo-description {
+    grid-column: 1/3;
+}
+
+#solo-coefficient {
+    grid-column: 1/3;
+}
+
+#name {
+    grid-column: 1/3;
+}
+
+@media (max-width: 768px) {
+    .container form {
+        display: flex;
+        flex-direction: column;
     }
 }

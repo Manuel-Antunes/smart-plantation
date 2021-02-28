@@ -3,9 +3,9 @@ require('dotenv/config');
 const path = require('path');
 const cors = require('cors');
 const handlebars = require('express-handlebars');
+const bodyParser = require('body-parser');
 const routes = require('./routes');
 const views = require('./views');
-
 require('./database');
 
 class App {
@@ -16,12 +16,13 @@ class App {
   }
 
   middlewares() {
-    this.server.use(express.json());
+    // this.server.use(express.json());
     this.server.use(cors());
     this.server.use(
       '/public',
       express.static(path.resolve(__dirname, 'public'))
     );
+    this.server.use(bodyParser.urlencoded({ extended: false }));
     this.server.use(
       '/files',
       express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))

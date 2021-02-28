@@ -4,7 +4,7 @@
     width: 100%;
     background-color: #141419;
     padding: 1%;
-    border: solid 1px #707070;
+    box-shadow: 0 2px 4px 0 rgba(58, 58, 58, 0.2);
 }
 
 .nav a {
@@ -15,21 +15,21 @@
     color: #fff;
     display: flex;
     align-items: center;
-    font-family: "Roboto", sans-serif;
-    font-size: 5vw;
+    font-family: "Lato", sans-serif;
+    font-size: 2vw;
 }
 
 .nav #profile {
     display: flex;
     align-items: center;
     font-family: "Roboto", sans-serif;
-    font-size: 3vw;
+    font-size: 2vw;
     color: #fff;
 }
 
 .nav img {
-    width: 90px;
-    height: 90px;
+    width: 50px;
+    height: 50px;
     border: solid 1px #707070;
     border-radius: 50%;
     margin-left: 5%;
