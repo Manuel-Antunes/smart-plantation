@@ -1,14 +1,14 @@
-const Plantation = require('../models/Plantation');
+const User = require('../models/User');
 
-class PlantationsController {
+class UsersController {
   /**
    * @param {import('express').Request} req
    * @param {import('express').Response} res
    */
   async store(req, res) {
     try {
-      const plantation = await Plantation.create(req.body);
-      return res.json(plantation);
+      const user = await User.create(req.body);
+      return res.json(user);
     } catch (err) {
       return res.status(400).json({ error: { message: 'an error' } });
     }
@@ -39,4 +39,4 @@ class PlantationsController {
   // async update(req, res) { }
 }
 
-module.exports = new PlantationsController();
+module.exports = new UsersController();

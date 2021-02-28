@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="../public/css/index.css">
+{{#if name}}
+<title>{{name}}</title>
+{{else}}
+<title>Plantation</title>
+{{/if}}
+
+<link rel="stylesheet" href="../public/css/plantation.css">
+{{>nav}}
+<div class="container">
+  <div class="main-graph">
+    <div class="card">
+      <div class="box">
+        <div class="percent">
+          <svg>
+            <circle cx="70" cy="70" r="70"></circle>
+            <circle cx="70" cy="70" r="70"></circle>
+          </svg>
+          <div class="number">
+            <h2>90<span>%</span></h2>
+          </div>
+        </div>
+
+      </div>
+      <div class="content">
+        <span>10% restantes para meta</span>
+        <span>tempo estimado 1000 minutos</span>
+        <span>quantidade de água utilizada na ultima irrigação (10L)</span>
+      </div>
+    </div>
+    <div class="legend">
+      <span>
+        <div class="green"></div>Humidade atual do solo
+      </span>
+      <span>
+        <div class="blue"></div>Humidade objetiva do solo
+      </span>
+    </div>
+  </div>
+
+</div>
+<div class="full-graph">
+  <table>
+    <tr>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+    </tr>
+  </table>
+</div>

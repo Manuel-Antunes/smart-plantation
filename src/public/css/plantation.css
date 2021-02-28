@@ -129,15 +129,12 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-gap: 20% 10%;
+    grid-gap: 40% 10%;
 }
 
 .content span:nth-child(3) {
+    border-top: 1px solid #FFF;
     grid-column: 1/3;
-}
-
-.legend span div {
-    margin-left: 1%;
 }
 
 .legend span {
@@ -151,12 +148,12 @@ body {
     flex-direction: column;
     color: #fff;
     background-color: #141419;
-    width: 100%;
-    height: 30vh;
+    width: 60%;
+    height: 20vh;
     justify-content: center;
     font-weight: bold;
     font-family: "Lato", sans-serif;
-    font-size: 5em;
+    font-size: 3vw;
     border: 1px solid #707070;
 }
 

@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="../public/css/index.css">
+<title>Smart Plantation</title>
+
+<h1>
+  Cadastre sua plantação
+</h1>
+<div class="container">
+  <div class="input-image">
+    <input class="image" id="image" type="file" accept="image/*" />
+    <img src="../public/img/paisagem.jpg" alt="">
+  </div>
+  <form action="./plantation" action="POST">
+    <div class="form-group">
+      <label for="">Nome da plantação</label>
+      <input placeholder="INSIRA O NOME AQUI" type="text">
+    </div>
+    <button type="submit">Cadastrar</button>
+  </form>
+  <footer>
+    <span>Torne sua plantação mais inteligente</span>
+  </footer>
+  <script>
+    const a = {{ name }};
+    console.log(a)
+  </script>
+</div>

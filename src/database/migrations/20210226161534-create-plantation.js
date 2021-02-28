@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
       },
       user_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'users',
@@ -35,6 +35,14 @@ module.exports = {
       },
       solo_type_coeficient: {
         type: Sequelize.ENUM(['1', '2', '3', '4', '5', '6']),
+      },
+      created_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      updated_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
       },
     });
   },

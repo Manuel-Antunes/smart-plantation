@@ -1,12 +1,13 @@
 const Sequelize = require('sequelize');
+const Plantation = require('../app/models/Plantation');
+const User = require('../app/models/User');
 const databaseConfig = require('../config/database');
 
-const models = [];
+const models = [User, Plantation];
 
 class Database {
   constructor() {
     this.init();
-    this.mongo();
   }
 
   init() {

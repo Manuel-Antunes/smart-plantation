@@ -1,12 +1,11 @@
-import { Model, Sequelize } from 'sequelize';
+const { Model, Sequelize } = require('sequelize');
 
 class Plantation extends Model {
   static init(sequelize) {
     super.init(
       {
-        id: { type: Sequelize.STRING, primaryKey: true },
         name: Sequelize.STRING,
-        user_id: Sequelize.INTEGER,
+        user_id: Sequelize.STRING,
         objective_humidity: Sequelize.FLOAT,
         flow_rate: Sequelize.FLOAT,
         field_description: Sequelize.STRING,

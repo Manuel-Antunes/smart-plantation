@@ -2,9 +2,11 @@ const express = require('express');
 require('dotenv/config');
 const path = require('path');
 const cors = require('cors');
+const handlebars = require('express-handlebars');
 const routes = require('./routes');
+const views = require('./views');
 
-// import './database';
+require('./database');
 
 class App {
   constructor() {
@@ -24,10 +26,22 @@ class App {
       '/files',
       express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
     );
+    this.server.engine(
+      '.hbs',
+      handlebars({
+        defaultLayout: 'main',
+        extname: '.hbs',
+        layoutsDir: path.resolve(__dirname, 'app', 'views', 'layouts'),
+        partialsDir: path.resolve(__dirname, 'app', 'views', 'partials'),
+      })
+    );
+    this.server.set('views', path.resolve(__dirname, 'app', 'views'));
+    this.server.set('view engine', '.hbs');
   }
 
   routes() {
     this.server.use(routes);
+    this.server.use(views);
   }
 }
 module.exports = new App().server;

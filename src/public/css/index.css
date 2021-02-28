@@ -1,13 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 .container {
     position: relative;
     width: 70vw;
-    height: 90vh;
+    height: 100vh;
     margin-top: 20vh;
     background-color: #141419;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: solid 1px #707070;
+    border-radius: 3px;
 }
 
 #image {
@@ -28,17 +29,18 @@
 .form-group label {
     font-weight: bold;
     color: #fff;
-    font-size: 20px;
+    font-size: 2vw;
 }
 
 .form-group input {
     margin-top: 20px;
-    padding: 3%;
     width: 100%;
+    padding: 2%;
 }
 
-.form-group input ::placeholder {
+.form-group input::placeholder {
     color: #bebbbb;
+    font-size: 1.5vw;
 }
 
 .input-image {
@@ -97,16 +99,19 @@ body {
 
 footer {
     display: flex;
-    font-size: 30px;
+    font-size: 2vw;
     margin: 0 5%;
+    bottom: 10px;
+    position: absolute;
     color: #fff;
     align-self: flex-end;
     justify-self: end;
 }
 
 h1 {
-    font-size: 6vw;
+    font-size: 3vw;
     color: #fff;
+    font-family: 'Roboto', sans-serif;
     margin-top: 2%;
 }
 
@@ -118,5 +123,8 @@ h1 {
         background: #fff;
         position: relative;
         border-radius: 50%;
+    }
+    .form-group label {
+        align-self: center;
     }
 }
