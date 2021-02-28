@@ -1,3 +1,4 @@
+const Media = require('../../models/Media');
 const Plantation = require('../../models/Plantation');
 
 class PlantationsController {
@@ -7,9 +8,21 @@ class PlantationsController {
    */
   async store(req, res) {
     try {
-      const plantation = await Plantation.create(req.body);
-      return res.render(`plantation/${req.body.name}`, plantation);
+      const media =
+        req.file &&
+        (await Media.create({
+          name: req.file.originalname,
+          path: req.file.filename,
+        }));
+      console.log(req.body);
+      const plantation = await Plantation.create({
+        ...req.body,
+        media_id: media && media.id,
+        user_id: req.body.user_id || '13213123123',
+      });
+      return res.render(`plantation`, plantation);
     } catch (err) {
+      console.log(err);
       return res
         .status(400)
         .render('index', { error: { message: 'an error' } });

@@ -3,12 +3,12 @@
 <div class="container">
   <ul class="plantations-list">
     <a id="add" href="create-plantation">+</a>
-
+    {{plantations}}
     {{#each plantations}}
     <li>
-      <a href="plantation/{{this.name}}">
-        <img src="{{this.logo.url}}" alt="{{this.name}}">
-        <div class="name {{this.status}}">{{this.name}}</div>
+      <a href="plantation/{{name}}">
+        <img src="{{logo.url}}" alt="{{name}}">
+        <div class="name {{status}}">{{name}}</div>
         <span>ENTER</span>
       </a>
     </li>
