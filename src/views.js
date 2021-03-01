@@ -6,6 +6,9 @@ const auth = require('./app/middlewares/auth');
 const routes = Router();
 
 routes.get('/', (req, res) => {
+  if (req.cookies.token) {
+    res.redirect('/plantations');
+  }
   res.render('createUsers', {
     name: JSON.stringify({ oi: 'jey', nyhan: 'ajsd' }),
   });
