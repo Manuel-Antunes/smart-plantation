@@ -81,13 +81,10 @@ authGoogleButton.addEventListener('click', function (e) {
 function signIn(provider) {
   firebase.auth()
     .signInWithPopup(provider)
-    .then(function (result) {
+    .then(async function (result) {
       console.log(result);
-      result.cre
-      var token = result.credential.accessToken;
-      let usuario = result.user;
-      document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      console.log(form);
+      var token = await result.user.getIdToken();
+      document.cookie = "token=" + token + ";";
       form.submit();
     }).catch(function (error) {
       console.log(error);

@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const Media = require('./app/models/Media');
 const Plantation = require('./app/models/Plantation');
+const auth = require('./app/middlewares/auth');
 
 const routes = Router();
 
@@ -9,8 +10,7 @@ routes.get('/', (req, res) => {
     name: JSON.stringify({ oi: 'jey', nyhan: 'ajsd' }),
   });
 });
-routes.get('/plantation/:id', (req, res) => {
-  console.log(req.body);
+routes.get('/plantation/:id', auth, (req, res) => {
   res.render('plantation');
 });
 routes.get('/hydricResources', (req, res) => {
@@ -22,8 +22,8 @@ routes.get('/test', (req, res) => {
 routes.get('/create-plantation', (req, res) => {
   res.render('index');
 });
-routes.get('/plantations', async (req, res) => {
-  console.log(req.cookies);
+routes.get('/plantations', auth, async (req, res) => {
+  console.log(req.user);
   const plantations = await Plantation.findAll({
     include: [{ model: Media, as: 'logo' }],
   });

@@ -5,6 +5,6 @@ tmp/*
 !tmp/.gitkeep
 
 dist
-
+src/config/firebase-config.json
 testFirebase.html
 

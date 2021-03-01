@@ -4,6 +4,7 @@ const path = require('path');
 const cors = require('cors');
 const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
+const cp = require('cookie-parser');
 const routes = require('./routes');
 const views = require('./views');
 require('./database');
@@ -18,6 +19,7 @@ class App {
   middlewares() {
     this.server.use(express.json());
     this.server.use(cors());
+    this.server.use(cp());
     this.server.use(
       '/public',
       express.static(path.resolve(__dirname, 'public'))
