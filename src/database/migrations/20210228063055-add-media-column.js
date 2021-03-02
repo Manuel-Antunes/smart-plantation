@@ -1,6 +1,6 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    queryInterface.addColumn('plantations', 'media_id', Sequelize.STRING, {
+    queryInterface.addColumn('plantations', 'media_id', Sequelize.INTEGER, {
       onUpdate: 'CASCADE',
       onDelete: 'SET NULL',
     });

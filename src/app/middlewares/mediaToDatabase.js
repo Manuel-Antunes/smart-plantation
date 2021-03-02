@@ -6,7 +6,6 @@ const Media = require('../models/Media');
  * @param {function} next
  */
 async function mediaToDatabase(req, res, next) {
-  console.log(req.file);
   if (req.file) {
     const media =
       req.file &&
@@ -16,6 +15,6 @@ async function mediaToDatabase(req, res, next) {
       }));
     req.file.dbMedia = media;
   }
-  return next();
+  next();
 }
 module.exports = mediaToDatabase;

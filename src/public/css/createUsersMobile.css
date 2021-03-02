@@ -112,7 +112,11 @@ h1 {
 
 form h1 {
     font-family: 'Roboto', sans-serif;
-    margin: 3rem 0;
+    margin: 1rem 0;
+    font-size: 3.75rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 300;
+    color: #FFF;
 }
 
 form p {

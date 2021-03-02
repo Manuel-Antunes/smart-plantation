@@ -5,31 +5,33 @@ const cors = require('cors');
 const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const cp = require('cookie-parser');
+const io = require('socket.io');
+const http = require('http');
 const routes = require('./routes');
 const views = require('./views');
+const startSockets = require('./socket');
 require('./database');
 
 class App {
   constructor() {
-    this.server = express();
+    this.app = express();
+    this.server = http.Server(this.app);
     this.middlewares();
     this.routes();
+    this.socket();
   }
 
   middlewares() {
-    this.server.use(express.json());
-    this.server.use(cors());
-    this.server.use(cp());
-    this.server.use(
-      '/public',
-      express.static(path.resolve(__dirname, 'public'))
-    );
-    this.server.use(bodyParser.urlencoded({ extended: false }));
-    this.server.use(
+    this.app.use(express.json());
+    this.app.use(cors());
+    this.app.use(cp());
+    this.app.use('/public', express.static(path.resolve(__dirname, 'public')));
+    this.app.use(bodyParser.urlencoded({ extended: false }));
+    this.app.use(
       '/files',
       express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
     );
-    this.server.engine(
+    this.app.engine(
       '.hbs',
       handlebars({
         defaultLayout: 'main',
@@ -38,13 +40,31 @@ class App {
         partialsDir: path.resolve(__dirname, 'app', 'views', 'partials'),
       })
     );
-    this.server.set('views', path.resolve(__dirname, 'app', 'views'));
-    this.server.set('view engine', '.hbs');
+    this.app.set('views', path.resolve(__dirname, 'app', 'views'));
+    this.app.set('view engine', '.hbs');
+    this.app.use((req, res, next) => {
+      req.io = this.io;
+      next();
+    });
   }
 
   routes() {
-    this.server.use(routes);
-    this.server.use(views);
+    this.app.use(routes);
+    this.app.use(views);
+  }
+
+  socket() {
+    this.io = io(this.server, {
+      cors: {
+        methods: ['GET', 'POST'],
+        allowedHeaders: ['my-custom-header'],
+        credentials: true,
+      },
+    });
+    this.io.on('connect', socket => {
+      startSockets(socket);
+      console.log('hello world');
+    });
   }
 }
 module.exports = new App().server;

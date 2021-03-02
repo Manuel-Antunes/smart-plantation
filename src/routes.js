@@ -22,5 +22,9 @@ routes.post(
   mediaToDatabase,
   PlantationsController.store
 );
+routes.get('/tess/:n', (req, res) => {
+  req.io.sockets.emit('dados', req.params.n);
+  res.send('foi');
+});
 
 module.exports = routes;

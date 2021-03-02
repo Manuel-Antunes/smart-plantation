@@ -7,12 +7,12 @@ class PlantationsController {
    */
   async store(req, res) {
     try {
-      const plantation = await Plantation.create({
+      await Plantation.create({
         ...req.body,
         media_id: req.file && req.file.dbMedia.id,
         user_id: req.user.get('id'),
       });
-      return res.render(`plantation`, plantation);
+      return res.redirect(`/plantation/${req.body.name}`);
     } catch (err) {
       return res
         .status(400)
@@ -20,11 +20,22 @@ class PlantationsController {
     }
   }
 
-  // /**
-  //  * @param {import('express').Request} req
-  //  * @param {import('express').Response} res
-  //  */
-  // async show(req, res) { }
+  /**
+   * @param {import('express').Request} req
+   * @param {import('express').Response} res
+   */
+  async show(req, res) {
+    let plantation = await Plantation.findOne({
+      where: { name: req.params.id },
+      include: [{ association: 'logo' }],
+    });
+    const media = plantation.get('logo') && plantation.get('logo').get();
+    plantation = plantation.get();
+    if (media) {
+      plantation.logo = media;
+    }
+    return res.render('plantation', { plantation });
+  }
 
   /**
    * @param {import('express').Request} req
@@ -39,9 +50,7 @@ class PlantationsController {
     });
     const ps = plantations.map(p => {
       const plant = p.get();
-      console.log(plant.media_id);
       if (p.get('logo')) {
-        console.log(p.get('logo'));
         plant.logo = p.get('logo').get();
       }
       return plant;

@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="../public/css/index.css">
 {{#if name}}
 <title>{{name}}</title>
 {{else}}
@@ -8,6 +7,14 @@
 <link rel="stylesheet" href="../public/css/plantation.css">
 {{>nav}}
 <div class="container">
+  <div id="logo">
+    {{#if plantation.logo}}
+    <img src="{{plantation.logo.url}}" alt="{{plantation.name}}">
+    {{else}}
+    <img src="/public/img/paisagem.jpg" alt="placeholder">
+    {{/if}}
+  </div>
+  <h1>{{plantation.name}}</h1>
   <div class="main-graph">
     <div class="card">
       <div class="box">
@@ -17,10 +24,9 @@
             <circle cx="70" cy="70" r="70"></circle>
           </svg>
           <div class="number">
-            <h2>90<span>%</span></h2>
+            <h2 id="percent">0<span>%</span></h2>
           </div>
         </div>
-
       </div>
       <div class="content">
         <span>10% restantes para meta</span>
@@ -55,3 +61,5 @@
     </tr>
   </table>
 </div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/public/js/plantation.js"></script>

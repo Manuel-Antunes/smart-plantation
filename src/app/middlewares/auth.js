@@ -15,6 +15,9 @@ async function authMiddleware(req, res, next) {
           id: fbUser.uid,
         },
       });
+      if (!user) {
+        throw new Error('User not found');
+      }
       user.firebaseData = fbUser;
       req.user = user;
       return next();

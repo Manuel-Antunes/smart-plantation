@@ -8,6 +8,7 @@ class Plantation extends Model {
         objective_humidity: Sequelize.FLOAT,
         flow_rate: Sequelize.FLOAT,
         field_description: Sequelize.STRING,
+        user_id: Sequelize.STRING,
         solo_type_coeficient: Sequelize.ENUM(['1', '2', '3', '4', '5', '6']),
       },
       { sequelize }

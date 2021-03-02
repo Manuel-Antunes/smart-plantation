@@ -17,9 +17,7 @@ routes.get('/login', (req, res) => {
   res.render('createUsers');
 });
 routes.get('/logout', AuthController.destroy);
-routes.get('/plantation/:id', auth, (req, res) => {
-  res.render('plantation');
-});
+routes.get('/plantation/:id', auth, PlantationsController.show);
 routes.get('/hydricResources', (req, res) => {
   res.render('hydricResources');
 });

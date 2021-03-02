@@ -12,3 +12,14 @@ form h1 {
     font-weight: 300;
     color: #191920;
 }
+
+@media (max-width:768px) {
+    form h1 {
+        font-family: 'Roboto', sans-serif;
+        margin: 1rem 0;
+        font-size: 3.75rem;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        font-weight: 300;
+        color: #FFF;
+    }
+}

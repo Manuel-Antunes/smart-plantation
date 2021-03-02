@@ -55,12 +55,12 @@ authEmailPassButton?.addEventListener('click', function (e) {
       var token = await result.user.getIdToken();
       console.log(token);
       document.cookie = "token=" + token + ";";
-      form.submit();
+      window.location.href = "/";
     })
     .catch(function (error) {
       console.error(error.code);
       console.error(error.message);
-      alert('Falha ao autenticar')
+      toast('falha ao autenticar', 'error');
     });
 });
 
