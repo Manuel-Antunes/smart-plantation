@@ -1,7 +1,7 @@
 const { Router } = require('express');
-const Media = require('./app/models/Media');
-const Plantation = require('./app/models/Plantation');
 const auth = require('./app/middlewares/auth');
+const PlantationsController = require('./app/controllers/http/PlantationsController');
+const AuthController = require('./app/controllers/http/AuthController');
 
 const routes = Router();
 
@@ -13,6 +13,10 @@ routes.get('/', (req, res) => {
     name: JSON.stringify({ oi: 'jey', nyhan: 'ajsd' }),
   });
 });
+routes.get('/login', (req, res) => {
+  res.render('createUsers');
+});
+routes.get('/logout', AuthController.destroy);
 routes.get('/plantation/:id', auth, (req, res) => {
   res.render('plantation');
 });
@@ -22,24 +26,11 @@ routes.get('/hydricResources', (req, res) => {
 routes.get('/test', (req, res) => {
   res.render('test');
 });
+routes.get('/sign-up', (req, res) => {
+  res.render('createUser');
+});
 routes.get('/create-plantation', (req, res) => {
   res.render('index');
 });
-routes.get('/plantations', auth, async (req, res) => {
-  console.log(req.user);
-  const plantations = await Plantation.findAll({
-    include: [{ model: Media, as: 'logo' }],
-  });
-  const ps = plantations.map(p => {
-    const plant = p.get();
-    if (p.get('logo')) {
-      plant.logo = p.get('logo').get();
-    }
-    return plant;
-  });
-  console.log(ps);
-  res.render('plantations', {
-    plantations: ps,
-  });
-});
+routes.get('/plantations', auth, PlantationsController.index);
 module.exports = routes;

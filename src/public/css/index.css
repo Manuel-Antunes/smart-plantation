@@ -8,14 +8,7 @@
     flex-direction: column;
     align-items: center;
     border-radius: 3px;
-}
-
-#image {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.6);
 }
 
 .form-group {
@@ -39,23 +32,6 @@
 
 .form-group input::placeholder {
     font-size: 1vw;
-}
-
-.input-image {
-    width: 200px;
-    height: 200px;
-    background: #fff;
-    margin-top: -100px;
-    position: relative;
-    border-radius: 50%;
-    grid-column: 1/3;
-    margin: -130px auto 0 auto;
-}
-
-.input-image img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
 }
 
 .container form {
@@ -114,39 +90,6 @@ h1 {
     color: #fff;
     font-family: 'Roboto', sans-serif;
     margin-top: 2%;
-}
-
-.input-image::after {
-    background-color: #fff;
-    content: '+';
-    right: 0;
-    bottom: 2%;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    position: absolute;
-    width: 15%;
-    height: 15%;
-    margin-right: 10px;
-    border: 1px solid #000;
-    border-radius: 50%;
-}
-
-@media (max-width: 768px) {
-    .input-image {
-        width: 100px;
-        height: 100px;
-        align-self: center;
-        margin-top: -50px;
-        background: #fff;
-        position: relative;
-        border-radius: 50%;
-    }
-    .form-group label {
-        align-self: center;
-    }
 }
 
 #objetive-humidity {}

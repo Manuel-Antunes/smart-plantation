@@ -3,11 +3,24 @@ const multer = require('multer');
 const PlantationsController = require('./app/controllers/http/PlantationsController');
 const UsersController = require('./app/controllers/http/UsersController');
 const multerconfig = require('./config/multer');
+const mediaToDatabase = require('./app/middlewares/mediaToDatabase');
+const auth = require('./app/middlewares/auth');
 
 const routes = Router();
 
 const upload = multer(multerconfig);
-routes.post('/users', UsersController.store);
-routes.post('/plantations', upload.single('file'), PlantationsController.store);
+routes.post(
+  '/users',
+  upload.single('file'),
+  mediaToDatabase,
+  UsersController.store
+);
+routes.post(
+  '/plantations',
+  auth,
+  upload.single('file'),
+  mediaToDatabase,
+  PlantationsController.store
+);
 
 module.exports = routes;

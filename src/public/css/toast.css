@@ -1,5 +1,6 @@
-@import "https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css";
-@import "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css";
+/* @import "https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"; */
+
 @keyframes toast {
     from {
         left: -10px;
@@ -14,24 +15,34 @@
 }
 
 .toast-container {
+    display: flex;
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 .toast-box {
     background-color: #b4071e;
     position: absolute;
     padding: 20px;
+    top: 20px;
+    left: 50px;
     opacity: 0;
-    max-width: 390px;
+    max-width: 600px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
     pointer-events: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.6);
 }
 
 .toast-box span {
     color: #fff;
+    display: flex;
     align-items: center;
 }
 
 .toast-box icon {
-    margin-right: 10%;
+    margin-right: 10px;
 }

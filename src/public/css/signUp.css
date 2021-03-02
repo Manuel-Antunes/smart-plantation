@@ -1,0 +1,14 @@
+.input-image {
+    width: 100px;
+    height: 100px;
+    margin-top: 0;
+    background-color: #191920;
+}
+
+form h1 {
+    margin: 1rem 0;
+    font-size: 5.75rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 300;
+    color: #191920;
+}

@@ -6,10 +6,7 @@
 </h1>
 <div class="container">
   <form enctype="multipart/form-data" id="form" action="./plantations" method="POST">
-    <div class="input-image">
-      <input name="file" onchange="changeInputImage(this)" class="image" id="image" type="file" accept="image/*" />
-      <img src="../public/img/paisagem.jpg" id="img-placeholder" alt="placeholder">
-    </div>
+    {{>imageInput placeholder="/public/img/paisagem.jpg"}}
     <div id="name" class="form-group">
       <label for="">Nome da plantação</label>
       <input name="name" required placeholder="INSIRA O NOME AQUI" type="text">
@@ -42,6 +39,6 @@
     const b = JSON.parse('{{{name}}}');
     console.log(b);
   </script>
-  <script src="/public/js/plantation.js"></script>
+  <script src="/public/js/imageInput.js"></script>
 
 </div>

@@ -7,8 +7,14 @@
       <h1>Smart Plantations</h1>
     </div>
     <div class="bash">
-      <form enctype="multipart/form-data" id="formulario" action="/plantations">
-        <h1>Login</h1>
+      <form enctype="multipart/form-data" id="formulario" action="/users" method="post">
+        <h1>SignUp</h1>
+        {{>imageInput placeholder="http://www.darylroththeatre.com/wp-content/uploads/2018/10/avatar-placeholder.png"}}
+        <link rel="stylesheet" href="/public/css/signUp.css">
+        <div class="form-control">
+          <label for="name">Name</label>
+          <input placeholder="insira o seu nome" id="name" name="name" type="text">
+        </div>
         <div class="form-control">
           <label for="email">Email</label>
           <input placeholder="insira o seu email" id="email" name="email" type="email">
@@ -18,7 +24,7 @@
           <input placeholder="insira sua senha" id="password" name="password" type="password">
         </div>
         <p>
-          Ainda não possui sua conta? <a href="/sign-up">clique aqui</a> e cadastre a sua.
+          Já possui uma conta? <a href="/login">clique aqui</a> e entre.
         </p>
         <div class="buttons">
           <button id="about">
@@ -26,10 +32,11 @@
             sobre
           </button>
           <button id="google-button"><i class="fab fa-google"></i>Login Com o Google</button>
-          <button id="default-auth" type="submit">Entrar</button>
+          <button id="create-user" type="submit">Cadastrar</button>
         </div>
       </form>
     </div>
   </div>
 </div>
 <script src="/public/js/authentication.js"></script>
+<script src="/public/js/imageInput.js"></script>

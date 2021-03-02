@@ -7,6 +7,36 @@
     box-shadow: 0 2px 4px 0 rgba(58, 58, 58, 0.2);
 }
 
+.nav .sub-menu {
+    right: 0%;
+    top: 100%;
+    background-color: #141420e5;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.6);
+    z-index: 3000;
+    display: none;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    transition: width 2s;
+}
+
+.sub-menu::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #141420c0;
+}
+
+.nav .profile:hover>.sub-menu {
+    display: flex;
+    padding: 10%;
+    width: 150%;
+}
+
 .nav a {
     text-decoration: none;
 }
@@ -21,6 +51,7 @@
 
 .nav #profile {
     display: flex;
+    position: relative;
     align-items: center;
     font-family: "Roboto", sans-serif;
     font-size: 2vw;
@@ -47,4 +78,33 @@
 
 .nav .profile {
     position: relative;
+}
+
+.nav .profile ul {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav .profile ul li {
+    font-size: 3rem;
+    margin: .5rem;
+    color: #FFF;
+}
+
+.nav .profile ul li a {
+    text-decoration: none;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+}
+
+.nav .profile ul li a:hover {
+    border-bottom: 1px solid #FFF;
+}
+
+.nav .profile ul li a i {
+    font-size: 3rem;
+    margin-right: 2rem;
 }

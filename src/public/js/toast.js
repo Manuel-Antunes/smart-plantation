@@ -1,5 +1,7 @@
-const a = document.getElementById("toast-container");
-
+const toastContainer = document.getElementById("toast-container");
+if (toastContainer.classList.contains('with-errors')) {
+  toast(toastContainer.dataset.error, 'error');
+}
 /*
 O rolê é o seguinte, pra usar essa merda aqui tudo q vc tem q fazer é
 criar uma div na sua view com a classe "toast-container" e
@@ -17,8 +19,8 @@ function toast(message, status) {
   b.appendChild(icon)
   b.innerHTML += message
   toast.appendChild(b)
-  console.log(a.dataset.icons);
-  a.appendChild(toast)
+  console.log(toastContainer.dataset.icons);
+  toastContainer.appendChild(toast)
   toast.style.animation = "toast .5s ease forwards";
   setTimeout(() => {
     toast.style.animation = "";

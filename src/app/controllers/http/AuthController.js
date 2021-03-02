@@ -1,18 +1,14 @@
 const User = require('../../models/User');
 const firebase = require('../../../services/firebase');
 
-class UsersController {
+class AuthController {
   /**
    * @param {import('express').Request} req
    * @param {import('express').Response} res
    */
   async store(req, res) {
     try {
-      const fbUser = await firebase.auth().createUser({
-        email: req.body.email,
-        password: req.body.password,
-        displayName: req.body.name,
-      });
+      const fbUser = await firebase.auth();
       console.log(fbUser);
       await User.create({
         id: fbUser.uid,
@@ -37,11 +33,14 @@ class UsersController {
   //  */
   // async index(req, res) { }
 
-  // /**
-  //  * @param {import('express').Request} req
-  //  * @param {import('express').Response} res
-  //  */
-  // async destroy(req, res) { }
+  /**
+   * @param {import('express').Request} req
+   * @param {import('express').Response} res
+   */
+  async destroy(req, res) {
+    res.clearCookie('token');
+    res.redirect('/');
+  }
 
   // /**
   //  * @param {import('express').Request} req
@@ -50,4 +49,4 @@ class UsersController {
   // async update(req, res) { }
 }
 
-module.exports = new UsersController();
+module.exports = new AuthController();

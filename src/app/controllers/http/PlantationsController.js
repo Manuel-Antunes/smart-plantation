@@ -1,4 +1,3 @@
-const Media = require('../../models/Media');
 const Plantation = require('../../models/Plantation');
 
 class PlantationsController {
@@ -8,21 +7,13 @@ class PlantationsController {
    */
   async store(req, res) {
     try {
-      const media =
-        req.file &&
-        (await Media.create({
-          name: req.file.originalname,
-          path: req.file.filename,
-        }));
-      console.log(req.body);
       const plantation = await Plantation.create({
         ...req.body,
-        media_id: media && media.id,
-        user_id: req.body.user_id || '13213123123',
+        media_id: req.file && req.file.dbMedia.id,
+        user_id: req.user.get('id'),
       });
       return res.render(`plantation`, plantation);
     } catch (err) {
-      console.log(err);
       return res
         .status(400)
         .render('index', { error: { message: 'an error' } });
@@ -35,11 +26,30 @@ class PlantationsController {
   //  */
   // async show(req, res) { }
 
-  // /**
-  //  * @param {import('express').Request} req
-  //  * @param {import('express').Response} res
-  //  */
-  // async index(req, res) { }
+  /**
+   * @param {import('express').Request} req
+   * @param {import('express').Response} res
+   */
+  async index(req, res) {
+    const plantations = await Plantation.findAll({
+      where: {
+        user_id: req.user.id,
+      },
+      include: [{ association: 'logo' }],
+    });
+    const ps = plantations.map(p => {
+      const plant = p.get();
+      console.log(plant.media_id);
+      if (p.get('logo')) {
+        console.log(p.get('logo'));
+        plant.logo = p.get('logo').get();
+      }
+      return plant;
+    });
+    res.render('plantations', {
+      plantations: ps,
+    });
+  }
 
   // /**
   //  * @param {import('express').Request} req

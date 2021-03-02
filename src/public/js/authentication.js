@@ -1,48 +1,61 @@
 // Buttons
 var authEmailPassButton = document.getElementById('default-auth');
 var authGoogleButton = document.getElementById('google-button');
-// var createUserButton = document.getElementById('default-auth');
+var createUserButton = document.getElementById('create-user');
+var emailInput = document.getElementById('email')
+var passwordInput = document.getElementById('password')
+var nameInput = document.getElementById('name')
+var image = document.getElementById('image')
 // var logOutButton = document.getElementById('logOutButton');
 // alert('foi')
 // Inputs
-var form = document.getElementById('form');
+createUserButton?.addEventListener('click', function (e) {
+  form.submit();
+});
+var form = document.getElementById('formulario');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+});
+
 var user;
 // Displays
 var displayName = document.getElementById('displayName');
 // Criar novo usuário
-firebase.auth().onAuthStateChanged(() => {
-  if (firebase.auth().currentUser) {
-    user = firebase.auth().currentUser.toJSON();
-    console.log(user.displayName);
-    let profile = document.createElement("img");
-    profile.src = user.photoURL;
-    profile.style.width = "50px";
-    profile.style.height = "50px";
-    profile.style.borderRadius = "100%";
-    let newString = "";
+// firebase.auth().onAuthStateChanged(() => {
+//   if (firebase.auth().currentUser) {
+//     user = firebase.auth().currentUser.toJSON();
+//     console.log(user.displayName);
+//     let profile = document.createElement("img");
+//     profile.src = user.photoURL;
+//     profile.style.width = "50px";
+//     profile.style.height = "50px";
+//     profile.style.borderRadius = "100%";
+//     let newString = "";
 
-    for (let i = 0; i < 30; i++) {
-      if (user.displayName[i] != " ") {
-        newString = newString + user.displayName[i];
-      } else {
-        break;
-      }
-    }
-    document.getElementById("logcamp").style.display = "none";
-    document.getElementById("displayName").innerHTML = newString + "       ";
-    document.getElementById("displayName").appendChild(profile);
-    logOutButton.style.display = "block";
-  }
-})
+//     for (let i = 0; i < 30; i++) {
+//       if (user.displayName[i] != " ") {
+//         newString = newString + user.displayName[i];
+//       } else {
+//         break;
+//       }
+//     }
+//     document.getElementById("logcamp").style.display = "none";
+//     document.getElementById("displayName").innerHTML = newString + "       ";
+//     document.getElementById("displayName").appendChild(profile);
+//     logOutButton.style.display = "block";
+//   }
+// })
 // Autenticar com E-mail e Senha
-authEmailPassButton.addEventListener('click', function (e) {
+authEmailPassButton?.addEventListener('click', function (e) {
   e.preventDefault();
   firebase
     .auth()
     .signInWithEmailAndPassword(emailInput.value, passwordInput.value)
-    .then(function (result) {
-      console.log(result);
-      window.location.href = './home.html';
+    .then(async function (result) {
+      var token = await result.user.getIdToken();
+      console.log(token);
+      document.cookie = "token=" + token + ";";
+      form.submit();
     })
     .catch(function (error) {
       console.error(error.code);
@@ -69,7 +82,7 @@ authEmailPassButton.addEventListener('click', function (e) {
 
 
 // Autenticar com Google
-authGoogleButton.addEventListener('click', function (e) {
+authGoogleButton?.addEventListener('click', function (e) {
   // Providers
   e.preventDefault();
   var provider = new firebase.auth.GoogleAuthProvider();

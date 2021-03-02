@@ -50,7 +50,7 @@ form {
 .form-control input {
     padding: 1.5rem;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.089);
+    background-color: rgb(255, 255, 255);
     border-radius: 2px;
     border: none;
 }
@@ -113,4 +113,14 @@ h1 {
 form h1 {
     font-family: 'Roboto', sans-serif;
     margin: 3rem 0;
+}
+
+form p {
+    margin-top: 3%;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+form p a {
+    font-size: 1.5rem;
 }
