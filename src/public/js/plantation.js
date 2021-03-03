@@ -1,5 +1,5 @@
 var socket = io.connect("http://localhost:3333");
-socket.emit('jooj', { hello: "world" })
+socket.emit('jooj', pl_id);
 socket.on('dados', (d) => {
   if (d) {
     const remainingT = document.getElementById('remaining-time')

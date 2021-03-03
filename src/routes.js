@@ -5,6 +5,8 @@ const UsersController = require('./app/controllers/http/UsersController');
 const multerconfig = require('./config/multer');
 const mediaToDatabase = require('./app/middlewares/mediaToDatabase');
 const auth = require('./app/middlewares/auth');
+const Cache = require('./lib/Cache');
+const Plantation = require('./app/models/Plantation');
 
 const routes = Router();
 
@@ -22,8 +24,12 @@ routes.post(
   mediaToDatabase,
   PlantationsController.store
 );
-routes.get('/tess/:n', (req, res) => {
+routes.get('/tess/:id/:n', async (req, res) => {
+  const plantation = await Plantation.findByPk(req.params.id);
   req.io.sockets.emit('dados', req.params.n);
+  await Cache.set(`plantation:${plantation.get('id')}:hresource`, {
+    value: req.params.n,
+  });
   res.send('foi');
 });
 
