@@ -6,18 +6,22 @@
     position: relative;
     width: 80vw;
     margin-top: 5vh;
-    height: 90vh;
     display: flex;
+    height: 150vh;
     flex-direction: column;
     background-color: #141419;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.6);
     align-items: center;
 }
 
 .container h1 {
-    font-size: 3vw;
+    margin-top: 5rem;
+    font-size: 5vw;
     color: #fff;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 300;
 }
 
 .container .green {
@@ -100,12 +104,14 @@ svg circle {
 
 .container #logo {
     width: 100%;
-    height: 60%;
+    height: 30%;
     overflow: hidden;
 }
 
 .container #logo img {
     width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .percent .number {
@@ -157,21 +163,30 @@ body {
 .legend span {
     display: flex;
     align-items: center;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 300;
     margin-left: 10%;
+}
+
+.legend span>div {
+    margin-right: 1rem;
+    box-shadow: 0 5px 20px 0 rgba(75, 75, 75, 0.295);
+    border-radius: 5px;
 }
 
 .legend {
     display: flex;
     flex-direction: column;
+    box-shadow: 0 5px 20px 0 rgba(3, 3, 3, 0.6);
     color: #fff;
-    background-color: #141419;
+    background-color: #101010;
     width: 60%;
     height: 20vh;
     justify-content: center;
     font-weight: bold;
+    border-radius: 10px;
     font-family: "Lato", sans-serif;
     font-size: 3vw;
-    border: 1px solid #707070;
 }
 
 .full-graph {

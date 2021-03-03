@@ -48,12 +48,12 @@ body {
     background-color: #075324;
     font-size: 10em;
     border-radius: 10px;
-    transition: padding 0.2s;
-    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.39);
+    transition: box-shadow 0.2s;
 }
 
 .plantations-list li:hover {
-    padding: 10px;
+    box-shadow: 0 10px 20px 0 rgba(37, 8, 117, 0.897);
 }
 
 .plantations-list li a .name {
