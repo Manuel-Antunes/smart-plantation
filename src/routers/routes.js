@@ -1,12 +1,12 @@
 const { Router } = require('express');
 const multer = require('multer');
-const PlantationsController = require('./app/controllers/http/PlantationsController');
-const UsersController = require('./app/controllers/http/UsersController');
-const multerconfig = require('./config/multer');
-const mediaToDatabase = require('./app/middlewares/mediaToDatabase');
-const auth = require('./app/middlewares/auth');
-const Cache = require('./lib/Cache');
-const Plantation = require('./app/models/Plantation');
+const PlantationsController = require('../app/controllers/http/PlantationsController');
+const UsersController = require('../app/controllers/http/UsersController');
+const multerconfig = require('../config/multer');
+const mediaToDatabase = require('../app/middlewares/mediaToDatabase');
+const auth = require('../app/middlewares/auth');
+const Cache = require('../lib/Cache');
+const Plantation = require('../app/models/Plantation');
 
 const routes = Router();
 

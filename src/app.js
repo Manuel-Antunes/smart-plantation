@@ -7,9 +7,9 @@ const bodyParser = require('body-parser');
 const cp = require('cookie-parser');
 const io = require('socket.io');
 const http = require('http');
-const routes = require('./routes');
-const views = require('./views');
-const startSockets = require('./socket');
+const routes = require('./routers/routes');
+const views = require('./routers/views');
+const startSockets = require('./routers/socket');
 require('./database');
 
 class App {

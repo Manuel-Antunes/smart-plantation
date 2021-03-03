@@ -1,4 +1,4 @@
-const ProgessIrrigationController = require('./app/controllers/ws/ProgressIrrigationController');
+const ProgessIrrigationController = require('../app/controllers/ws/ProgressIrrigationController');
 
 /**
  *

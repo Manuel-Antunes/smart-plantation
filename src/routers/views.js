@@ -1,7 +1,7 @@
 const { Router } = require('express');
-const auth = require('./app/middlewares/auth');
-const PlantationsController = require('./app/controllers/http/PlantationsController');
-const AuthController = require('./app/controllers/http/AuthController');
+const auth = require('../app/middlewares/auth');
+const PlantationsController = require('../app/controllers/http/PlantationsController');
+const AuthController = require('../app/controllers/http/AuthController');
 
 const routes = Router();
 
