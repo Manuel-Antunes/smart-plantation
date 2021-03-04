@@ -12,7 +12,7 @@ class PlantationsController {
         media_id: req.file && req.file.dbMedia.id,
         user_id: req.user.get('id'),
       });
-      return res.redirect(`/plantation/${req.body.name}`);
+      return res.redirect(`/plantations/${req.body.name}`);
     } catch (err) {
       return res
         .status(400)
@@ -55,7 +55,7 @@ class PlantationsController {
       }
       return plant;
     });
-    res.render('plantations', {
+    return res.render('plantations', {
       plantations: ps,
     });
   }

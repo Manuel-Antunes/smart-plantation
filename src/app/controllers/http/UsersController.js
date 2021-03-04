@@ -12,6 +12,7 @@ class UsersController {
         email: req.body.email,
         password: req.body.password,
         displayName: req.body.name,
+        photoURL: `${process.env.HOST}/files/${req.file.filename}`,
       });
       console.log(fbUser);
       await User.create({

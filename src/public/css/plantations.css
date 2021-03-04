@@ -84,13 +84,13 @@ body {
     transition: background-color .2s ease-in-out;
 }
 
-.plantations-list li a span .on::before {
+.plantations-list li a span.on::before {
     background-color: #94E185;
     border-color: #78D965;
     box-shadow: 0px 0px 4px 1px #94E185;
 }
 
-.plantations-list li a span .issued::before {
+.plantations-list li a span.issued::before {
     background-color: #FFC182;
     border-color: #FFB161;
     box-shadow: 0px 0px 4px 1px #FFC182;
@@ -114,7 +114,7 @@ body {
     border-radius: 50%;
 }
 
-.plantations-list li a span .off::before {
+.plantations-list li a span.off::before {
     background-color: #C9404D;
     border-color: #C42C3B;
     box-shadow: 0px 0px 4px 1px #C9404D;

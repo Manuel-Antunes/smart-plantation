@@ -7,27 +7,27 @@ const routes = Router();
 
 routes.get('/', (req, res) => {
   if (req.cookies.token) {
-    res.redirect('/plantations');
+    return res.redirect('/plantations');
   }
-  res.render('createUsers', {
+  return res.render('createUsers', {
     name: JSON.stringify({ oi: 'jey', nyhan: 'ajsd' }),
   });
 });
 routes.get('/login', (req, res) => {
-  res.render('createUsers');
+  return res.render('createUsers');
 });
 routes.get('/logout', AuthController.destroy);
 routes.get('/hydricResources', (req, res) => {
-  res.render('hydricResources');
+  return res.render('hydricResources');
 });
 routes.get('/test', (req, res) => {
-  res.render('test');
+  return res.render('test');
 });
 routes.get('/sign-up', (req, res) => {
-  res.render('createUser');
+  return res.render('createUser');
 });
 routes.get('/create-plantation', (req, res) => {
-  res.render('index');
+  return res.render('index');
 });
 routes.get('/plantations', auth, PlantationsController.index);
 routes.get('/plantations/:id', auth, PlantationsController.show);
