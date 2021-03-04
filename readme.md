@@ -13,6 +13,7 @@ MVC
 ### Environment
 * SQLDBs
 * Firebase
+* Redis
 
 ### Tools
 * Express
