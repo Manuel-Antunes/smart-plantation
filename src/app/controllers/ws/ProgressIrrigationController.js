@@ -1,10 +1,10 @@
 const Cache = require('../../../lib/Cache');
 
 class ProgessIrrigationController {
-  static async handle(data, io) {
+  static async handle(data, socket) {
     const cacheKey = `plantation:${data}:hresource`;
     const cached = await Cache.get(cacheKey);
-    io.emit('dados', cached.value);
+    socket.emit('dados', cached && cached.value);
   }
 }
 module.exports = ProgessIrrigationController;

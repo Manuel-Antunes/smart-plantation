@@ -7,9 +7,11 @@ const bodyParser = require('body-parser');
 const cp = require('cookie-parser');
 const io = require('socket.io');
 const http = require('http');
+const session = require('express-session');
+const flash = require('connect-flash');
 const routes = require('./routers/routes');
 const views = require('./routers/views');
-const startSockets = require('./routers/socket');
+const { defineNamespace, startSockets } = require('./routers/socket');
 require('./database');
 
 class App {
@@ -46,6 +48,19 @@ class App {
       req.io = this.io;
       next();
     });
+    this.app.use(
+      session({
+        secret: process.env.APP_KEY,
+        resave: true,
+        saveUninitialized: true,
+      })
+    );
+    this.app.use(flash());
+    this.app.use((req, res, next) => {
+      res.locals.error_message = req.flash('error_message');
+      res.locals.success_message = req.flash('success_message');
+      next();
+    });
   }
 
   routes() {
@@ -54,6 +69,9 @@ class App {
   }
 
   socket() {
+    /**
+     * @type {import('socket.io').Server}
+     */
     this.io = io(this.server, {
       cors: {
         methods: ['GET', 'POST'],
@@ -63,8 +81,8 @@ class App {
     });
     this.io.on('connect', socket => {
       startSockets(socket);
-      console.log('hello world');
     });
+    defineNamespace(this.io);
   }
 }
 module.exports = new App().server;

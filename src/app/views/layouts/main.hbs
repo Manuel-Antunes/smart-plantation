@@ -21,11 +21,17 @@
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="/public/js/firebase.js"></script>
-  <div id="toast-container" {{#if error}} class="with-errors" data-error="{{error}}" {{/if}}>
+  <script src="/socket.io/socket.io.js"></script>
+
+  <div id="toast-container" {{#if error_message}} class="with-errors" data-error="{{error_message}}" {{/if}}>
   </div>
 
 
   {{{body}}}
+  <script>
+    var error = "{{error_message}}";
+    console.log(error);
+  </script>
   <script src="/public/js/toast.js"></script>
 </body>
 

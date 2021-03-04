@@ -9,7 +9,9 @@ const User = require('../models/User');
 async function authMiddleware(req, res, next) {
   if (req.cookies.token) {
     try {
-      const fbUser = await firebase.auth().verifyIdToken(req.cookies.token);
+      const fbUser = await firebase
+        .auth()
+        .verifySessionCookie(req.cookies.token);
       const user = await User.findOne({
         where: {
           id: fbUser.uid,
@@ -22,11 +24,17 @@ async function authMiddleware(req, res, next) {
       req.user = user;
       return next();
     } catch (err) {
-      res.clearCookie('token');
-      return res.status(401).render('createUsers', { error: err });
+      if (res.clearCookie) {
+        res.clearCookie('token');
+        req.flash('error_message', err.message);
+        return res.status(401).redirect('/');
+      }
     }
-  } else {
-    return res.status(401).json({ error: 'user must to be logged in' });
+  } else if (res.status) {
+    console.log('oi');
+    req.flash('error_message', 'an error occurred');
+    return res.status(401).redirect('/');
   }
+  return res;
 }
 module.exports = authMiddleware;

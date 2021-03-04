@@ -7,6 +7,7 @@ const mediaToDatabase = require('../app/middlewares/mediaToDatabase');
 const auth = require('../app/middlewares/auth');
 const Cache = require('../lib/Cache');
 const Plantation = require('../app/models/Plantation');
+const AuthController = require('../app/controllers/http/AuthController');
 
 const routes = Router();
 
@@ -26,11 +27,17 @@ routes.post(
 );
 routes.get('/tess/:id/:n', async (req, res) => {
   const plantation = await Plantation.findByPk(req.params.id);
-  req.io.sockets.emit('dados', req.params.n);
-  await Cache.set(`plantation:${plantation.get('id')}:hresource`, {
-    value: req.params.n,
-  });
+  req.io
+    .of('/plantation')
+    .in(req.params.id)
+    .emit('dados', req.params.n);
+  if (plantation) {
+    await Cache.set(`plantation:${req.params.id}:hresource`, {
+      value: req.params.n,
+    });
+  }
   res.send('foi');
 });
+routes.post('/auth', AuthController.store);
 
 module.exports = routes;

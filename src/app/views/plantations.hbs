@@ -14,8 +14,10 @@
         {{else}}
         <img class="placeholded" src="/public/img/paisagem.jpg" alt="placeholder">
         {{/if}}
-        <div class="name {{status}}">{{name}}</div>
-        <span>ENTER</span>
+        <div class="label-name">
+          <div class="name {{status}}">{{name}}</div>
+          <span>ENTER</span>
+        </div>
       </a>
     </li>
     {{/each}}
@@ -24,3 +26,4 @@
   <a id="add" href="create-plantation">+</a>
   {{/unless}}
 </div>
+<script src="/public/js/status.js" type="module"></script>

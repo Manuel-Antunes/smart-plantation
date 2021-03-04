@@ -1,4 +1,3 @@
-const User = require('../../models/User');
 const firebase = require('../../../services/firebase');
 
 class AuthController {
@@ -7,17 +6,18 @@ class AuthController {
    * @param {import('express').Response} res
    */
   async store(req, res) {
+    const expiresIn = 1000 * 60 * 60 * 24 * 7;
+    const idToken = req.body.idToken.toString();
     try {
-      const fbUser = await firebase.auth();
-      console.log(fbUser);
-      await User.create({
-        id: fbUser.uid,
-        name: fbUser.displayName,
-      });
-      return res.redirect('/');
+      const sessionCookie = await firebase
+        .auth()
+        .createSessionCookie(idToken, { expiresIn });
+      const options = { maxAge: expiresIn, httpOnly: true, secure: true };
+      res.cookie('token', sessionCookie, options);
+      return res.json({ sessionCookie });
     } catch (err) {
-      console.log(err);
-      return res.status(400).render('createUser', err);
+      req.flash('error_message', err.message);
+      return res.status(400).json({ message: err.message });
     }
   }
 

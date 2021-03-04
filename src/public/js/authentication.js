@@ -52,8 +52,17 @@ authEmailPassButton?.addEventListener('click', function (e) {
     .auth()
     .signInWithEmailAndPassword(emailInput.value, passwordInput.value)
     .then(async function (result) {
-      var token = await result.user.getIdToken();
-      console.log(token);
+      var token = await result.user.getIdToken(true);
+      const a = await fetch('/auth', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ idToken: token })
+      });
+      const response = await a.json()
+      token = response.sessionCookie.toString();
       document.cookie = "token=" + token + ";";
       window.location.href = "/";
     })
