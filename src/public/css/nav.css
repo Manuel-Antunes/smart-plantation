@@ -18,7 +18,7 @@
     padding: 0;
     position: absolute;
     width: 100%;
-    transition: width 2s;
+    transition: all 2s;
 }
 
 .sub-menu::before {

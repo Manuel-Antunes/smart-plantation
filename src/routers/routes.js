@@ -38,6 +38,9 @@ routes.get('/tess/:id/:n', async (req, res) => {
   }
   res.send('foi');
 });
+routes.get('/user', auth, (req, res) => {
+  res.send('aksdaskl');
+});
 routes.post('/auth', AuthController.store);
 
 module.exports = routes;

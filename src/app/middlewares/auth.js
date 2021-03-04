@@ -9,17 +9,17 @@ const User = require('../models/User');
 async function authMiddleware(req, res, next) {
   if (req.cookies.token) {
     try {
-      const fbUser = await firebase
+      const fbCooked = await firebase
         .auth()
         .verifySessionCookie(req.cookies.token);
-      const user = await User.findOne({
-        where: {
+      const fbUser = await firebase.auth().getUser(fbCooked.uid);
+      const [user] = await User.findCreateFind({
+        where: { id: fbUser.uid },
+        defaults: {
           id: fbUser.uid,
+          name: fbUser.displayName,
         },
       });
-      if (!user) {
-        throw new Error('User not found');
-      }
       user.firebaseData = fbUser;
       req.user = user;
       return next();
@@ -31,7 +31,6 @@ async function authMiddleware(req, res, next) {
       }
     }
   } else if (res.status) {
-    console.log('oi');
     req.flash('error_message', 'an error occurred');
     return res.status(401).redirect('/');
   }

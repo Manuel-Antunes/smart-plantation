@@ -17,7 +17,6 @@ routes.get('/login', (req, res) => {
   res.render('createUsers');
 });
 routes.get('/logout', AuthController.destroy);
-routes.get('/plantation/:id', auth, PlantationsController.show);
 routes.get('/hydricResources', (req, res) => {
   res.render('hydricResources');
 });
@@ -31,4 +30,6 @@ routes.get('/create-plantation', (req, res) => {
   res.render('index');
 });
 routes.get('/plantations', auth, PlantationsController.index);
+routes.get('/plantations/:id', auth, PlantationsController.show);
+
 module.exports = routes;

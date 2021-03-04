@@ -12,8 +12,6 @@ class AuthController {
       const sessionCookie = await firebase
         .auth()
         .createSessionCookie(idToken, { expiresIn });
-      const options = { maxAge: expiresIn, httpOnly: true, secure: true };
-      res.cookie('token', sessionCookie, options);
       return res.json({ sessionCookie });
     } catch (err) {
       req.flash('error_message', err.message);

@@ -61,9 +61,13 @@ authEmailPassButton?.addEventListener('click', function (e) {
         },
         body: JSON.stringify({ idToken: token })
       });
+      var now = new Date();
+      var time = now.getTime();
+      var expireTime = time + 1000 * 36000;
+      now.setTime(expireTime);
       const response = await a.json()
       token = response.sessionCookie.toString();
-      document.cookie = "token=" + token + ";";
+      document.cookie = "token=" + token + ";expires=" + now.toUTCString() + ";path=/";
       window.location.href = "/";
     })
     .catch(function (error) {
@@ -104,13 +108,25 @@ function signIn(provider) {
   firebase.auth()
     .signInWithPopup(provider)
     .then(async function (result) {
-      console.log(result);
       var token = await result.user.getIdToken();
-      document.cookie = "token=" + token + ";";
-      form.submit();
+      const a = await fetch('/auth', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ idToken: token })
+      });
+      var now = new Date();
+      var time = now.getTime();
+      var expireTime = time + 1000 * 36000;
+      now.setTime(expireTime);
+      const response = await a.json()
+      token = response.sessionCookie.toString();
+      document.cookie = "token=" + token + ";expires=" + now.toUTCString() + ";path=/";
+      window.location.href = "/";
     }).catch(function (error) {
-      console.log(error);
-      alert('Falha na autenticação');
+      toast('Falha na autenticação', 'error')
     });
 
 }

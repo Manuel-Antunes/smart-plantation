@@ -1,7 +1,7 @@
 var avatar = document.getElementById('photo-avatar');
 const username = document.getElementById('username');
 async function setNavData(user) {
-  avatar.src = user.photoUrl ? user.photoUrl : "http://www.darylroththeatre.com/wp-content/uploads/2018/10/avatar-placeholder.png";
+  avatar.src = user.photoURL ? user.photoURL : "http://www.darylroththeatre.com/wp-content/uploads/2018/10/avatar-placeholder.png";
   username.innerHTML = user.displayName;
 }
 
