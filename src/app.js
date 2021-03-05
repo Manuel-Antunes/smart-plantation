@@ -9,6 +9,7 @@ const io = require('socket.io');
 const http = require('http');
 const session = require('express-session');
 const flash = require('connect-flash');
+const mosca = require('mosca');
 const routes = require('./routers/routes');
 const views = require('./routers/views');
 const { defineNamespace, startSockets } = require('./routers/socket');
@@ -21,6 +22,7 @@ class App {
     this.middlewares();
     this.routes();
     this.socket();
+    this.mqtt();
   }
 
   middlewares() {
@@ -66,6 +68,14 @@ class App {
   routes() {
     this.app.use(routes);
     this.app.use(views);
+  }
+
+  mqtt() {
+    this.mosca = new mosca.Server({
+      http: this.app,
+      // eslint-disable-next-line radix
+      port: parseInt(process.env.MQTT_PORT),
+    });
   }
 
   socket() {
