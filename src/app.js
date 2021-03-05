@@ -13,6 +13,7 @@ const mosca = require('mosca');
 const routes = require('./routers/routes');
 const views = require('./routers/views');
 const { defineNamespace, startSockets } = require('./routers/socket');
+const { routePackets } = require('./routers/packeters');
 require('./database');
 
 class App {
@@ -75,6 +76,10 @@ class App {
       http: this.app,
       // eslint-disable-next-line radix
       port: parseInt(process.env.MQTT_PORT),
+    });
+    this.mosca.io = this.io;
+    this.mosca.on('published', (p, c) => {
+      routePackets(p, c, this.mosca);
     });
   }
 

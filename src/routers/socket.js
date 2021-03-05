@@ -1,5 +1,5 @@
 const cp = require('cookie-parser');
-const ProgessIrrigationController = require('../app/controllers/ws/ProgressIrrigationController');
+const ProgessIrrigationController = require('../app/controllers/ws/PlantationDataController');
 const authMiddleware = require('../app/middlewares/auth');
 const { wrap } = require('../util/wsMiddlewareWrapper');
 
