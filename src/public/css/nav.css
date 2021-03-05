@@ -11,14 +11,15 @@
     right: 0%;
     top: 100%;
     background-color: #141420fa;
-    border-radius: 10px;
+    border-radius: 1px;
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.6);
     z-index: 3000;
     display: none;
-    padding: 0;
+    border-left: 1px solid rgb(190, 190, 190);
+    border-right: 1px solid rgb(190, 190, 190);
     position: absolute;
-    width: 100%;
     transition: all 2s;
+    width: max-content;
 }
 
 .sub-menu::before {
@@ -33,8 +34,6 @@
 
 .nav .profile:hover>.sub-menu {
     display: flex;
-    padding: 10%;
-    width: 110%;
 }
 
 .nav a {
@@ -95,11 +94,11 @@
 
 .nav .profile ul li {
     font-size: 3rem;
-    margin: .5rem;
     color: #FFF;
 }
 
 .nav .profile ul li a {
+    padding: 1rem 5rem;
     text-decoration: none;
     color: #FFF;
     display: flex;
@@ -107,7 +106,7 @@
 }
 
 .nav .profile ul li a:hover {
-    border-bottom: 1px solid #FFF;
+    background-color: rgba(255, 255, 255, 0.521);
 }
 
 .nav .profile ul li a i {
