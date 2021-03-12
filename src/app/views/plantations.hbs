@@ -26,4 +26,12 @@
   <a id="add" href="create-plantation">+</a>
   {{/unless}}
 </div>
+<script>
+  var plantations = '{{plantations}}';
+  console.log(plantations.toString());
+
+  plantations.forEach((e) => {
+    console.log(e.name);
+  })
+</script>
 <script src="/public/js/status.js" type="module"></script>

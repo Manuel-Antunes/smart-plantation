@@ -78,6 +78,9 @@ class App {
       port: parseInt(process.env.MQTT_PORT),
     });
     this.mosca.io = this.io;
+    this.mosca.on('clientConnected', (p, c) => {
+      console.log(c);
+    });
     this.mosca.on('published', (p, c) => {
       routePackets(p, c, this.mosca);
     });
