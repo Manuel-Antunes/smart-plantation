@@ -74,7 +74,7 @@ class App {
     mqtt() {
         this.mosca = new mosca.Server({
             http: this.app,
-            schema: false,
+            backend: false,
             // eslint-disable-next-line radix
             port: parseInt(process.env.MQTT_PORT),
         });
