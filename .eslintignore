@@ -1,3 +1,4 @@
 /src/public/*
 /node_modules/*
 /src/app/views/
+/fix.js
