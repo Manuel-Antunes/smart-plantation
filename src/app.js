@@ -34,7 +34,7 @@ class App {
     this.app.use(bodyParser.urlencoded({ extended: false }));
     this.app.use(
       '/files',
-      express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
+      express.static(path.resolve(__dirname, '..', 'tmp', 'uploads')),
     );
     this.app.engine(
       '.hbs',
@@ -43,7 +43,7 @@ class App {
         extname: '.hbs',
         layoutsDir: path.resolve(__dirname, 'app', 'views', 'layouts'),
         partialsDir: path.resolve(__dirname, 'app', 'views', 'partials'),
-      })
+      }),
     );
     this.app.set('views', path.resolve(__dirname, 'app', 'views'));
     this.app.set('view engine', '.hbs');
@@ -56,7 +56,7 @@ class App {
         secret: process.env.APP_KEY,
         resave: true,
         saveUninitialized: true,
-      })
+      }),
     );
     this.app.use(flash());
     this.app.use((req, res, next) => {
@@ -88,8 +88,8 @@ class App {
 
   socket() {
     /**
-     * @type {import('socket.io').Server}
-     */
+         * @type {import('socket.io').Server}
+         */
     this.io = io(this.server, {
       cors: {
         methods: ['GET', 'POST'],
@@ -97,7 +97,7 @@ class App {
         credentials: true,
       },
     });
-    this.io.on('connect', socket => {
+    this.io.on('connect', (socket) => {
       startSockets(socket);
     });
     defineNamespace(this.io);
