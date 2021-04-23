@@ -72,12 +72,15 @@ class App {
     }
 
     mqtt() {
-        this.mosca = new mosca.Server({
-            http: this.app,
-            backend: false,
-            // eslint-disable-next-line radix
-            port: parseInt(process.env.MQTT_PORT),
-        });
+        try {
+            this.mosca = new mosca.Server({
+                http: this.app,
+                // eslint-disable-next-line radix
+                port: parseInt(process.env.MQTT_PORT),
+            });
+        } catch (err) {
+            console.log('hey');
+        }
         this.mosca.io = this.io;
         this.mosca.on('clientConnected', (p, c) => {
             console.log(c);
