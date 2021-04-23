@@ -3,6 +3,7 @@ node_modules
 
 tmp/*
 !tmp/.gitkeep
+src/config/firebase-config.json
 
 dist
 testFirebase.html
