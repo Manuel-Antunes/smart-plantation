@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "smart-plantation-af873",
+  "private_key_id": "68a6f62aeb09204761e001c2938a87727c1493cc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQChbo65HCMyYv8D\nO4MW6ZNW3sVOY+3H/YTM10XPW3VaDSqKdtdbpjG/D3Z/AcJZYSQNETAarvzeqjey\n+0ZmgSN3XDA6ILrJT+E6r9PUHiBROLaQBuk0tdyILXTgmWx+VEJBPTy3EjPFebQY\n9OmYBUpBmo47Id7FWg32apPpIsaJaunoF7msSPIxlV525Mgv03Z/77q8cHfd02SN\nWlbuXzahuQnp/MLjsGrcK+a21ccDWbO55u6CD6mqAsSSXpCRZTJe9n+RNbQh29is\nNQ1YW6fgf5A+5iGxpT9tWG4mqccMXr8NMPj5On9ClS3AK8LokPHee2yS/Wc1budH\n3+tasMeDAgMBAAECggEAP/M2IuqcntdMwpEOy0LYlW9Gplk71x/9PdCB3TUT9gqF\nMbkGc04RIukTPhkKTrIGwA5xCgEMN4Ei84pLR0wdKqmgiUZx+FHmnYMN3VfZ4ZMf\n70ptk+3/YQrw5BCjRCBI5uNFbBiP3cjqqYBMEWb3FaoOcipmv7N/GID7+z1FfSX2\nQRuXiOtwlLNz79ShhWbnYZOJv5+Z83c/iLKm46E5gjARDGhaORTF080zdkCs8Yxw\nhBqOKHaJl5/5hWWvMjLO1ATyaI7mNmlI9FdMltxnJljixQ6RhxemzLZwQ5l+gY5I\nLlYEuM6slY2lLTFrKtZUaMsW5WENu7ISv0fQJETUoQKBgQDR+DK2Fqwbo2HM7694\nPIxaKp8vVxKeDKHOSPB6mF+31wmTw4mu11MZLD53x+oWGIl9VxlD9qj/IkdJqxTo\nItn3vnASa44RonHKnxZF9AL1RaB3LC1vHwhIVh8h25xmoYw+vxhcz2qvG0GabYUi\ni4xSF3rL+yLjUzWJpYfON9vH6QKBgQDE0lqVxanW2ZNE0e0Pe0pMOyzRBRMhtbrl\nNiIyuz7E5/m4F815SE6UFSVZmbRNZvbEQSD8QkSqlnfibQZI4lOa9OTyDXvJfkF0\nkLyO997XOD7pcnleAwgcdWthS7mjwSxfe6Zk/sQ5G3O7wzuiv0EEhYN12lWBQN4h\nphr757fciwKBgEn8cDoTcR/oCU1CZA01IKug+yieQPQqNVXQA9TfHlNUVY6Yx0ox\nm5lyKqzgZ87TZJci+sclAlWsiXwe6aYGqdGPbERBW/VAzWH9fsa1fdlZaHq1uWi/\ngZajqiKvFMRhRl7RzU7e05PSQeKdlt0eWRqQJXf9DUUXC/Vtu5XhvvMJAoGAO8tE\nJdglHtZ+vRuhj2B/U+VuWhnWlBknrFbj0NG94ggvf1QL4lqrNKWv8SaW9iTftwOq\nR7jCL6kCxtEkZaQMjjj0DO03vCEVNZp7DlwTYQL/aeCTKpJ1NmAdvTNKNIuNNXzV\nMj2L02WZpWNMjMbZs8v0AivQajIQydwyunDNFL0CgYBmn/Y5VFNd5kV+3v5SrpVo\nFBAGKF45omFO75txD4L8EMVg9zayIwPPXVUqJMkPTRYrK2aXL13XS0dhMplqIVf5\nzBoREMlVLqnwnY+YjSngVv8NM299yKkgvFtusJWtZMEtkLxu6UHBu/duYhb+4x6y\nToYqL/cF0Y6bspDSKwgWEg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-ruiml@smart-plantation-af873.iam.gserviceaccount.com",
+  "client_id": "115278959370043013828",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ruiml%40smart-plantation-af873.iam.gserviceaccount.com"
+}
