@@ -13,6 +13,7 @@ const routes = require('./routers/routes');
 const views = require('./routers/views');
 const { defineNamespace, startSockets } = require('./routers/socket');
 const { routePackets } = require('./routers/packeters');
+const api = require('./routers/api');
 require('./database');
 
 class App {
@@ -67,6 +68,7 @@ class App {
 
   routes() {
     this.app.use(routes);
+    this.app.use('/api', api);
     this.app.use(views);
   }
 
@@ -78,6 +80,7 @@ class App {
         port: parseInt(process.env.MQTT_PORT),
       });
     } catch (err) {
+      console.log(err);
       console.log('hey');
     }
     this.mosca.io = this.io;
